@@ -15,7 +15,10 @@ public class Recipe {
     private String name;
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Ingredient> ingredients = new ArrayList<>();;
+    private List<Ingredient> ingredients = new ArrayList<>();
+
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Tool> tools = new ArrayList<>();
 
     public Recipe() {
     }
@@ -48,4 +51,14 @@ public class Recipe {
     public void addIngredients(Ingredient ingredients) {
         this.ingredients.add(ingredients);
     }
+
+    public List<Tool> getTools() {
+        return tools;
+    }
+
+    public void addTool(Tool tool) {
+        this.tools.add(tool);
+    }
+
+
 }
