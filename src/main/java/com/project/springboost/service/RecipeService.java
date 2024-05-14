@@ -5,6 +5,7 @@ import com.project.springboost.entity.Recipe;
 import com.project.springboost.entity.Tool;
 import com.project.springboost.repository.IngredientDao;
 import com.project.springboost.repository.RecipeDao;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class RecipeService {
         return recipeList;
     }
 
+    @Transactional
     public Recipe saveRecipe(Recipe recipe) {
         // Set the recipe for each ingredient
         for (Ingredient ingredient : recipe.getIngredients()) {
